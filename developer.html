@@ -1,37 +1,113 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  </head>
-  <body>
+{% extends "layout.html" %}
 
-  <div class="container my-4 mt-4">
-<h6>    About Junaid Khan: Your AI & ML Engineer
-</h6>
-<h5>Meet the Developer</h5>
+{% block title %}Development Team - Health Care Center{% endblock %}
 
-<p>Hello, I'm Junaid Khan, your AI and Machine Learning Engineer with over 5 years of experience in the field. I am passionate about harnessing the power of technology to make a positive impact on people's lives. Allow me to share a bit about my journey in the world of artificial intelligence and machine learning.
-</p>
-<h5>My Expertise
-</h5>
-<p>With a strong academic background in computer science and a deep fascination for AI and ML, I embarked on a journey that has taken me across the globe, working on diverse and innovative projects. Over the years, I've had the privilege of collaborating on international projects that have pushed the boundaries of what's possible in AI and ML.
-</p>
-<h5>A Commitment to Excellence
-</h5>
-<p>My work is driven by a commitment to excellence and a belief that technology should be accessible and beneficial to everyone. Whether it's developing predictive models, creating intelligent algorithms, or designing user-friendly interfaces, I strive for solutions that are both cutting-edge and user-centric.
-</p>
-<h5>Passion for Health Tech
-</h5>
-<p>The development of [Your Website Name] represents a convergence of my passion for AI and my dedication to improving healthcare accessibility. I believe that AI has the potential to transform the way we approach healthcare, making it more personalized and informative. This platform is a testament to that vision.
-</p>
-<h5>Join Me on this Journey
-</h5>
-<p>I invite you to explore [Your Website Name] and experience firsthand the fusion of AI and healthcare. Together, we can empower individuals with knowledge, promote well-being, and contribute to a brighter and healthier future.
-</p>
-  </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
-</html>
+{% block content %}
+<div class="team-section py-5">
+    <div class="container">
+        <h1 class="text-center mb-5">Our Development Team</h1>
+        
+        <!-- Team Lead -->
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto">
+                <div class="card border-0 shadow-lg team-lead-card">
+                    <div class="card-body text-center p-5">
+                        <img src="{{ url_for('static', filename='img/team/lead.jpg') }}" alt="Team Lead" class="rounded-circle mb-4" width="150">
+                        <h3 class="card-title mb-3">Alok Kumar</h3>
+                        <h5 class="text-muted mb-4">Project Lead & ML Engineer</h5>
+                        <p class="lead">Leading the development of AI-powered healthcare solutions with over 5 years of experience in machine learning and healthcare technology.</p>
+                        <div class="social-links mt-4">
+                            <a href="#" class="text-dark me-3"><i class="fab fa-github fa-lg"></i></a>
+                            <a href="#" class="text-dark me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                            <a href="#" class="text-dark"><i class="fab fa-twitter fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Members -->
+        <div class="row g-4">
+            <!-- AI Specialist -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0 shadow-sm team-card h-100">
+                    <div class="card-body text-center p-4">
+                        <img src="{{ url_for('static', filename='img/team/chomu.jpg') }}" alt="AI Specialist" class="rounded-circle mb-3" width="100">
+                        <h4 class="card-title">Kundan Kumar</h4>
+                        <p class="text-muted mb-3">AI Algorithm Specialist</p>
+                        <p>Specialized in developing and optimizing machine learning models for disease prediction.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backend Developer -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0 shadow-sm team-card h-100">
+                    <div class="card-body text-center p-4">
+                        <img src="{{ url_for('static', filename='img/team/betu.jpg') }}" alt="Backend Developer" class="rounded-circle mb-3" width="100">
+                        <h4 class="card-title">Aman Singh</h4>
+                        <p class="text-muted mb-3">Backend Developer</p>
+                        <p>Expert in Flask framework and database management for healthcare applications.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frontend Developer -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0 shadow-sm team-card h-100">
+                    <div class="card-body text-center p-4">
+                        <img src="{{ url_for('static', filename='img/team/motu.jpg') }}" alt="Frontend Developer" class="rounded-circle mb-3" width="100">
+                        <h4 class="card-title">Samrat Das</h4>
+                        <p class="text-muted mb-3">UI/UX Designer</p>
+                        <p>Creating intuitive and accessible user interfaces for healthcare platforms.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical Advisor -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0 shadow-sm team-card h-100">
+                    <div class="card-body text-center p-4">
+                        <img src="{{ url_for('static', filename='img/team/gendu.jpg') }}" alt="Medical Advisor" class="rounded-circle mb-3" width="100">
+                        <h4 class="card-title">Subhodeep Maity</h4>
+                        <p class="text-muted mb-3">Medical Advisor</p>
+                        <p>Providing medical expertise and validating the system's diagnostic accuracy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.team-card, .team-lead-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover, .team-lead-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-lead-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.social-links a {
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color) !important;
+}
+
+.team-section {
+    background-color: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+    .team-lead-card .card-body {
+        padding: 3rem !important;
+    }
+}
+</style>
+{% endblock %}

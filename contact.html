@@ -1,37 +1,116 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  </head>
-  <body>
+{% extends "layout.html" %}
 
-  <div class="container my-4 mt-4">
-<h6>    About Junaid Khan: Your AI & ML Engineer
-</h6>
-<h5>Meet the Developer</h5>
+{% block title %}Contact Us - Health Care Center{% endblock %}
 
-<p>Hello, I'm Junaid Khan, your AI and Machine Learning Engineer with over 5 years of experience in the field. I am passionate about harnessing the power of technology to make a positive impact on people's lives. Allow me to share a bit about my journey in the world of artificial intelligence and machine learning.
-</p>
-<h5>My Expertise
-</h5>
-<p>With a strong academic background in computer science and a deep fascination for AI and ML, I embarked on a journey that has taken me across the globe, working on diverse and innovative projects. Over the years, I've had the privilege of collaborating on international projects that have pushed the boundaries of what's possible in AI and ML.
-</p>
-<h5>A Commitment to Excellence
-</h5>
-<p>My work is driven by a commitment to excellence and a belief that technology should be accessible and beneficial to everyone. Whether it's developing predictive models, creating intelligent algorithms, or designing user-friendly interfaces, I strive for solutions that are both cutting-edge and user-centric.
-</p>
-<h5>Passion for Health Tech
-</h5>
-<p>The development of [Your Website Name] represents a convergence of my passion for AI and my dedication to improving healthcare accessibility. I believe that AI has the potential to transform the way we approach healthcare, making it more personalized and informative. This platform is a testament to that vision.
-</p>
-<h5>Join Me on this Journey
-</h5>
-<p>I invite you to explore [Your Website Name] and experience firsthand the fusion of AI and healthcare. Together, we can empower individuals with knowledge, promote well-being, and contribute to a brighter and healthier future.
-</p>
-  </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
-</html>
+{% block content %}
+<div class="contact-section py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 text-center">
+                <h1 class="display-4 mb-3">Get in Touch</h1>
+                <p class="lead mb-0">We're here to help and answer any questions you might have</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Contact Form -->
+            <div class="col-lg-7 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-4">Send us a Message</h3>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone</label>
+                                    <input type="tel" class="form-control">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Subject</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Message</label>
+                                    <textarea class="form-control" rows="5" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="col-lg-5">
+                <div class="row g-4">
+                    <div class="col-md-12">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h3 class="card-title mb-4">Contact Information</h3>
+                                <div class="d-flex mb-4">
+                                    <i class="fas fa-map-marker-alt text-primary fs-4 me-3"></i>
+                                    <div>
+                                        <h5>Address</h5>
+                                        <p class="mb-0">123 Healthcare Avenue<br>Medical District, MD 12345</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-4">
+                                    <i class="fas fa-phone text-primary fs-4 me-3"></i>
+                                    <div>
+                                        <h5>Phone</h5>
+                                        <p class="mb-0">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-4">
+                                    <i class="fas fa-envelope text-primary fs-4 me-3"></i>
+                                    <div>
+                                        <h5>Email</h5>
+                                        <p class="mb-0">contact@healthcarecenter.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <h3 class="card-title mb-4">Business Hours</h3>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2">Monday - Friday: 9:00 AM - 6:00 PM</li>
+                                    <li class="mb-2">Saturday: 10:00 AM - 4:00 PM</li>
+                                    <li>Sunday: Closed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_css %}
+<style>
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+}
+</style>
+{% endblock %}
+{% endblock %}
