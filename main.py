@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 from flask import Flask, request, render_template, jsonify  # Import jsonify
+=======
+from flask import Flask, request, render_template, jsonify, url_for  # Import jsonify
+
+app = Flask(__name__, static_url_path='/static')
+
+>>>>>>> version-2.0
 import numpy as np
 import pandas as pd
 import pickle
@@ -36,7 +43,11 @@ def helper(dis):
     med = [med for med in med.values]
 
     die = diets[diets['Disease'] == dis]['Diet']
+<<<<<<< HEAD
     die = [die for die in die.values]
+=======
+    die = [d for d in die.values]
+>>>>>>> version-2.0
 
     wrkout = workout[workout['disease'] == dis] ['workout']
 
@@ -58,6 +69,7 @@ def get_predicted_value(patient_symptoms):
 
 # creating routes========================================
 
+<<<<<<< HEAD
 
 @app.route("/")
 def index():
@@ -81,12 +93,49 @@ def home():
             # Remove any extra characters, if any
             user_symptoms = [symptom.strip("[]' ") for symptom in user_symptoms]
             predicted_disease = get_predicted_value(user_symptoms)
+=======
+@app.route("/get_symptoms", methods=['GET'])
+def get_symptoms():
+    search = request.args.get('search', '').lower()
+    filtered_symptoms = [
+        {"value": symptom, "label": symptom.replace('_', ' ').title()}
+        for symptom in symptoms_dict.keys()
+        if search in symptom.replace('_', ' ')
+    ]
+    return jsonify(filtered_symptoms)
+
+@app.route("/predict", methods=['GET', 'POST'])
+def predict():
+    if request.method == 'POST':
+        symptoms = request.form.get('symptoms')
+        if not symptoms or symptoms.isspace():
+            message = "Please enter some symptoms"
+            return render_template('predict.html', message=message)
+        
+        try:
+            # Split and clean symptoms
+            user_symptoms = [s.strip().lower().replace(' ', '_') for s in symptoms.split(',')]
+            user_symptoms = [symptom.strip("[]' ") for symptom in user_symptoms]
+            
+            # Validate symptoms with better error message
+            valid_symptoms = [s for s in user_symptoms if s in symptoms_dict]
+            invalid_symptoms = [s for s in user_symptoms if s not in symptoms_dict]
+            
+            if not valid_symptoms:
+                message = f"No valid symptoms found. Please enter symptoms from the suggestion list."
+                if invalid_symptoms:
+                    message += f" Invalid symptoms: {', '.join(invalid_symptoms)}"
+                return render_template('predict.html', message=message)
+            
+            predicted_disease = get_predicted_value(valid_symptoms)
+>>>>>>> version-2.0
             dis_des, precautions, medications, rec_diet, workout = helper(predicted_disease)
 
             my_precautions = []
             for i in precautions[0]:
                 my_precautions.append(i)
 
+<<<<<<< HEAD
             return render_template('index.html', predicted_disease=predicted_disease, dis_des=dis_des,
                                    my_precautions=my_precautions, medications=medications, my_diet=rec_diet,
                                    workout=workout)
@@ -94,6 +143,24 @@ def home():
     return render_template('index.html')
 
 
+=======
+            return render_template('predict.html', 
+                                predicted_disease=predicted_disease, 
+                                dis_des=dis_des,
+                                my_precautions=my_precautions, 
+                                medications=medications, 
+                                my_diet=rec_diet,
+                                workout=workout)
+        except Exception as e:
+            message = f"An error occurred: {str(e)}. Please try again."
+            return render_template('predict.html', message=message)
+            
+    return render_template('predict.html', all_symptoms=list(symptoms_dict.keys()))
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+>>>>>>> version-2.0
 
 # about view funtion and path
 @app.route('/about')
